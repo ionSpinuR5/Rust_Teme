@@ -1,14 +1,14 @@
-fn add_space(s : &mut String, mut n :i32) {
+fn add_space(s: &mut String, mut n: i32) {
     while n > 0 {
         s.push(' ');
-        n -=1;
+        n -= 1;
     }
 }
-fn add_str(s: &mut String, st : &str){
+fn add_str(s: &mut String, st: &str) {
     s.push_str(st);
 }
 
-fn add_integer(s: &mut String, nr : i32 ){
+fn add_integer(s: &mut String, nr: i32) {
     let mut a = nr;
     if a < 0 {
         s.push('-');
@@ -19,8 +19,8 @@ fn add_integer(s: &mut String, nr : i32 ){
         temp.push('0');
     }
 
-    while a>0{
-        let digit = a %10;
+    while a > 0 {
+        let digit = a % 10;
         let c = (digit as u8 + b'0') as char;
         temp.push(c);
         a /= 10;
@@ -29,15 +29,15 @@ fn add_integer(s: &mut String, nr : i32 ){
     let mut i = temp.len();
 
     while i > 0 {
-        i -=1;
+        i -= 1;
         s.push(temp.as_bytes()[i] as char);
-        if i > 0 && i % 3 == 0{
+        if i > 0 && i.is_multiple_of(3) {
             s.push('_');
         }
     }
 }
 fn add_float(s: &mut String, nr: f64) {
-    let mut n = (nr.abs() * 1000.0).round() as u64;
+    let n = (nr.abs() * 1000.0).round() as u64;
 
     if nr < 0.0 {
         s.push('-');
@@ -61,8 +61,6 @@ fn add_float(s: &mut String, nr: f64) {
         }
     }
 }
-
-
 
 fn main() {
     let mut s = String::new();

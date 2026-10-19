@@ -1,7 +1,7 @@
-fn add_chars_n( s :&mut String, c : char, mut n:i32){
-    while n>0 {
+fn add_chars_n(s: &mut String, c: char, mut n: i32) {
+    while n > 0 {
         s.push(c);
-        n-=1;
+        n -= 1;
     }
 }
 fn main() {
